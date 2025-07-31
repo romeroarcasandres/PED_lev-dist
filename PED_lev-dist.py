@@ -78,7 +78,7 @@ def generate_html_report(dmp, filename, col1_data, col2_data, diffs_list, score_
         </html>
     ''')
 
-    with open(f'{report_name}.html', 'w') as f:
+    with open(f'{report_name}.html', 'w', encoding='utf-8') as f:
         f.write('\n'.join(html_report))
 
     print(f"HTML diff report generated: {report_name}.html")
@@ -94,7 +94,7 @@ def compare_columns_in_csv():
         return
     
     # Load CSV into pandas DataFrame
-    df = pd.read_csv(csv_file)
+    df = pd.read_csv(csv_file, sep=None, engine='python')
     
     # Display available columns and prompt user to select two columns
     print("Available columns:")
